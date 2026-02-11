@@ -1,0 +1,220 @@
+/* ===== Global Layout ===== */
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-gradient-start),
+    var(--color-bg-gradient-end)
+  );
+  color: var(--color-text-main);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+
+/* ===== Main App Container ===== */
+
+.app {
+  width: 100%;
+  max-width: 900px;
+  padding: var(--space-xl);
+  text-align: center;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Transitioning state */
+.app.deep-focus-transitioning {
+  pointer-events: none;
+}
+
+
+/* ===== Header ===== */
+
+.app-header {
+  margin-bottom: var(--space-lg);
+}
+
+.app-title {
+  font-size: var(--font-size-title);
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+  margin-top: auto;
+}
+
+.app-tagline {
+  font-size: var(--font-size-tagline);
+  color: var(--color-text-muted);
+}
+
+
+/* ===== Timer Section ===== */
+
+.timer-section {
+  margin-bottom: var(--space-lg);
+}
+
+.timer-display {
+  font-size: var(--font-size-timer);
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+
+.encouragement {
+  font-size: var(--font-size-tagline);
+  color: var(--color-text-muted);
+}
+
+
+/* ===== Controls Layout ===== */
+
+.controls {
+  margin-bottom: var(--space-lg);
+}
+
+.duration-controls {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+
+/* ===== Streak Footer ===== */
+
+.streak {
+  margin-top: var(--space-md);
+}
+
+
+/* ===== Deep Focus Mode ===== */
+
+/* The main container when active */
+.app.deep-focus-mode {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100dvh;
+  height: 100%;
+  max-width: none; /* Override default max-width */
+  z-index: 999;
+  padding: 0;
+  margin: 0;
+  
+  /* Brand-consistent immersive gradient */
+  background: radial-gradient(
+    circle at center,
+    var(--color-primary-dark) 0%,
+    #355f49 100%
+  );
+  
+  /* Centering */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  transition: all 0.5s ease;
+}
+
+/* Hide Elements in Deep Focus */
+.app.deep-focus-mode .app-header,
+.app.deep-focus-mode .streak,
+.app.deep-focus-mode .encouragement,
+.app.deep-focus-mode .xp-display,
+.app.deep-focus-mode .focus-toggle-btn,
+.app.deep-focus-mode .focus-mode-toggle {
+  display: none !important;
+}
+
+/* Hide duration buttons only when running */
+.app.deep-focus-mode.duration-selected .duration-controls {
+  display: none !important;
+}
+
+/* Duration Button Contrast Fix for Deep Focus */
+.app.deep-focus-mode .duration-controls button {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  box-shadow: none;
+}
+
+.app.deep-focus-mode .duration-controls button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* Ensure specific override for soft-start class (maintains border size but fixes contrast) */
+.app.deep-focus-mode .duration-controls .soft-start {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  border-color: var(--color-primary);
+}
+
+/* Session controls and Exit button fade in on hover */
+.app.deep-focus-mode .focus-controls,
+.app.deep-focus-mode .exit-focus-btn {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.app.deep-focus-mode .focus-controls.controls-visible,
+.app.deep-focus-mode .exit-focus-btn.controls-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Spaced Timer */
+.app.deep-focus-mode .timer-section {
+  z-index: 1001;
+  margin-bottom: var(--space-lg); /* 40px spacing */
+}
+
+.app.deep-focus-mode #timer {
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  color: var(--color-text-light);
+  text-shadow: none;
+}
+
+.app.deep-focus-mode.deep-focus-animate #timer {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Exit Animation */
+.app.deep-focus-exiting #timer {
+  opacity: 0 !important;
+  transform: scale(0.97) !important;
+  transition: opacity 0.2s ease, transform 0.2s ease !important;
+}
+
+/* Fade out elements during transition */
+.app.deep-focus-transitioning .app-header,
+.app.deep-focus-transitioning .streak,
+.app.deep-focus-transitioning .duration-controls,
+.app.deep-focus-transitioning .xp-display,
+.app.deep-focus-transitioning .unlock-progress {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+/* Position Controls */
+.app.deep-focus-mode .session-controls {
+  z-index: 1001;
+  margin-top: var(--space-md); /* 20px spacing */
+  transform: none; /* Removed scale */
+}
+
+/* Ensure Modal sits on top */
+.modal {
+  z-index: 2000;
+}
+
+

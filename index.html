@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FocusSprint</title>
+
+  <link rel="shortcut icon" href="/assets/icons/icon.png" type="image/x-icon">
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+
+<body>
+  <main class="app">
+    <!-- App Shell Wrapper (for Deep Focus) -->
+    <div id="app-shell" class="app-shell">
+      <!-- Header -->
+      <header class="app-header">
+        <h1 class="app-title">FocusSprint</h1>
+        <p class="app-tagline">Start small. Just 2 minutes.</p>
+      </header>
+
+      <!-- Timer Section -->
+      <section class="timer-section">
+        <!-- Deep Focus Toggle -->
+        <div class="focus-mode-toggle">
+          <button id="focus-toggle-btn" class="focus-toggle-btn hidden">
+            ✨ Deep Focus
+          </button>
+        </div>
+
+        <!-- Unlock Progress -->
+        <div class="unlock-progress hidden" id="unlock-progress">
+          <div class="unlock-label">
+            Deep Focus Unlock
+            <span id="unlock-count">0 / 3</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+        </div>
+
+        <div class="timer-display" id="timer">08:00</div>
+        <p class="encouragement" id="encouragement">
+          You're doing great. Keep going.
+        </p>
+        <p id="xp-display" class="xp-display">XP: 0</p>
+      </section>
+
+      <!-- Controls -->
+      <section class="controls">
+        <div class="duration-controls">
+          <button class="time-btn" data-time="5">5 min</button>
+          <button class="time-btn" data-time="8">8 min</button>
+          <button class="time-btn" data-time="12">12 min</button>
+          <button class="time-btn soft-start" data-time="2">
+            I can’t start (2 min)
+          </button>
+          <!-- <button class="time-btn test-btn" data-time="0.166">
+            ⚡ Test (10s)
+          </button> -->
+        </div>
+      </section>
+
+      <!-- Session Controls -->
+      <section class="session-controls focus-controls hidden" id="session-controls">
+        <button id="pause-btn">Pause</button>
+        <button id="reset-btn">Reset</button>
+      </section>
+
+      <!-- Exit Deep Focus Button -->
+      <button id="exit-focus-btn" class="exit-focus-btn hidden">
+        Exit Focus Mode
+      </button>
+
+      <!-- Streak -->
+      <footer class="streak">
+        <div class="streak-card">
+          🔥 Streak: <span id="streak-count">3</span> days
+        </div>
+      </footer>
+    </div>
+
+    <!-- Session Complete Modal -->
+    <div class="modal hidden" id="session-modal">
+      <div class="modal-content">
+        <h2>🔥 Session Complete!</h2>
+        <p id="modal-message">You did it. Keep building momentum.</p>
+        <button id="close-modal">Nice 🎯</button>
+      </div>
+    </div>
+
+    <audio id="success-sound" src="assets/sounds/success.mp3"></audio>
+
+  </main>
+
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-78smhG3RaSpUl54_AENJM.js"></script>
+  <script>
+    window.plausible = window.plausible || function () { (plausible.q = plausible.q || []).push(arguments) }, plausible.init = plausible.init || function (i) { plausible.o = i || {} };
+    plausible.init()
+  </script>
+
+
+  <!-- JS Files -->
+  <script src="js/storage.js"></script>
+  <script src="js/streak.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/timer.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
