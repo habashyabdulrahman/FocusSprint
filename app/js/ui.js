@@ -276,6 +276,8 @@ function deactivateDeepFocus() {
     const controls = document.querySelectorAll(".focus-controls");
     controls.forEach(el => el.classList.remove("controls-visible"));
 
+    plausible('deep_focus_activated');
+
   }, 200);
 }
 

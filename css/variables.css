@@ -1,58 +1,52 @@
+/* ===== Landing Page Variables ===== */
+
 :root {
-
-  /* ===== Colors ===== */
-
-  /* Background */
+  /* Core Colors (copied from main theme) */
   --color-bg-primary: #f4efe6;
   --color-bg-gradient-start: #f4efe6;
   --color-bg-gradient-end: #e8f3ef;
 
-  /* Primary Green */
   --color-primary: #6fb58a;
   --color-primary-dark: #4f9a6e;
   --color-primary-soft: #a8d5ba;
 
-  /* Accent (Streak / Reward) */
   --color-accent: #f4a261;
 
-  /* Text */
   --color-text-main: #2f2f2f;
   --color-text-muted: #6c6c6c;
   --color-text-light: #ffffff;
 
-  /* ===== Shadows ===== */
-
-  --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.08);
-  --shadow-button: 0 3px 0px rgba(0, 0, 0, 0.20);
-  --shadow-glow: 0 0 25px rgba(111, 181, 138, 0.4);
-
-  /* ===== Border Radius ===== */
-
-  --radius-large: 20px;
-  --radius-medium: 14px;
-  --radius-small: 8px;
-
-  /* ===== Typography ===== */
-
-  --font-main: "Inter", system-ui, -apple-system, sans-serif;
-
-  --font-size-title: 42px;
-  --font-size-tagline: 18px;
-  --font-size-timer: 120px;
-  --font-size-button: 18px;
-  --font-size-streak: 16px;
-
-  /* ===== Spacing ===== */
-
-  --space-xs: 6px;
-  --space-sm: 12px;
-  --space-md: 20px;
-  --space-lg: 40px;
-  --space-xl: 60px;
-
-  /* ===== Transitions ===== */
-
-  --transition-fast: 0.2s ease;
-  --transition-smooth: 0.3s ease;
+  /* Fonts */
+  --font-main: 'DM Sans', sans-serif;
+  --font-display: 'Darker Grotesque', var(--font-main);
   
+  /* Spacing */
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 32px;
+  --space-xl: 64px;
+  --space-2xl: 100px;
+  --space-3xl: 120px;
+  
+  /* Radius */
+  --radius-medium: 14px;
+  --radius-large: 20px;
+
+  /* Font Sizes */
+  --font-size-hero-main: clamp(48px, 9vw, 96px);
+  --font-size-hero-top: clamp(28px, 5vw, 48px);
+  --font-size-section-title: clamp(32px, 6vw, 56px);
+  --font-size-big-quote: clamp(28px, 5vw, 48px);
+  --font-size-step-number: 64px;
+  --font-size-stat-number: 36px;
+  --font-size-button: 18px;
+  
+  /* Shadows */
+  --shadow-soft: 0 10px 40px -10px rgba(0,0,0,0.08);
+  --shadow-button: 0 4px 14px 0 rgba(0,0,0,0.1);
+  --shadow-card-hover: 0 12px 30px rgba(111, 181, 138, 0.2);
+  --shadow-cta-hover: 0 8px 24px rgba(111, 181, 138, 0.3);
+
+  /* Transitions */
+  --transition-smooth: 0.3s ease;
 }

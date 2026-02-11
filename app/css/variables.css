@@ -1,0 +1,58 @@
+:root {
+
+  /* ===== Colors ===== */
+
+  /* Background */
+  --color-bg-primary: #f4efe6;
+  --color-bg-gradient-start: #f4efe6;
+  --color-bg-gradient-end: #e8f3ef;
+
+  /* Primary Green */
+  --color-primary: #6fb58a;
+  --color-primary-dark: #4f9a6e;
+  --color-primary-soft: #a8d5ba;
+
+  /* Accent (Streak / Reward) */
+  --color-accent: #f4a261;
+
+  /* Text */
+  --color-text-main: #2f2f2f;
+  --color-text-muted: #6c6c6c;
+  --color-text-light: #ffffff;
+
+  /* ===== Shadows ===== */
+
+  --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.08);
+  --shadow-button: 0 3px 0px rgba(0, 0, 0, 0.20);
+  --shadow-glow: 0 0 25px rgba(111, 181, 138, 0.4);
+
+  /* ===== Border Radius ===== */
+
+  --radius-large: 20px;
+  --radius-medium: 14px;
+  --radius-small: 8px;
+
+  /* ===== Typography ===== */
+
+  --font-main: "Inter", system-ui, -apple-system, sans-serif;
+
+  --font-size-title: 42px;
+  --font-size-tagline: 18px;
+  --font-size-timer: 120px;
+  --font-size-button: 18px;
+  --font-size-streak: 16px;
+
+  /* ===== Spacing ===== */
+
+  --space-xs: 6px;
+  --space-sm: 12px;
+  --space-md: 20px;
+  --space-lg: 40px;
+  --space-xl: 60px;
+
+  /* ===== Transitions ===== */
+
+  --transition-fast: 0.2s ease;
+  --transition-smooth: 0.3s ease;
+  
+}

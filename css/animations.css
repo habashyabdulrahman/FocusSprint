@@ -1,82 +1,142 @@
-/* ===== Timer Glow Effect ===== */
+/* ===== Landing Page Animations ===== */
 
-.timer-running {
-  animation: glowPulse 2s infinite ease-in-out;
+/* ===== FLOATING BACKGROUND SHAPES ===== */
+
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    var(--color-primary-soft) 0%,
+    transparent 70%
+  );
+  animation: floatShape 25s ease-in-out infinite;
 }
 
-@keyframes glowPulse {
-  0% {
-    text-shadow: 0 0 5px rgba(111, 181, 138, 0.3);
+.shape-1 {
+  width: 500px;
+  height: 500px;
+  top: -200px;
+  left: -150px;
+  animation-delay: 0s;
+}
+
+.shape-2 {
+  width: 350px;
+  height: 350px;
+  bottom: -150px;
+  right: -100px;
+  background: radial-gradient(
+    circle,
+    var(--color-accent) 0%,
+    transparent 70%
+  );
+  opacity: 0.3;
+  animation-delay: -8s;
+}
+
+.shape-3 {
+  width: 250px;
+  height: 250px;
+  top: 40%;
+  right: 10%;
+  animation-delay: -16s;
+}
+
+@keyframes floatShape {
+  0%, 100% { 
+    transform: translate(0, 0) scale(1); 
+    opacity: 0.4;
   }
-  50% {
-    text-shadow: var(--shadow-glow);
+  33% { 
+    transform: translate(40px, -40px) scale(1.15); 
+    opacity: 0.5;
   }
-  100% {
-    text-shadow: 0 0 5px rgba(111, 181, 138, 0.3);
+  66% { 
+    transform: translate(-30px, 30px) scale(0.85); 
+    opacity: 0.3;
   }
 }
 
+/* ===== HERO ENTRANCE ANIMATIONS ===== */
 
-/* ===== Button Pop Animation ===== */
-
-.btn-pop {
-  animation: pop 0.3s ease;
+.hero-content {
+  animation: fadeInUp 1s ease-out;
 }
 
-@keyframes pop {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.08);
-  }
-  100% {
-    transform: scale(1);
-  }
+.hero-badge {
+  animation: fadeInUp 1s ease-out 0.2s both;
 }
 
-
-/* ===== Streak Highlight Animation ===== */
-
-.streak-highlight {
-  animation: streakGlow 0.6s ease;
+.hero-title-top {
+  animation: fadeInUp 1s ease-out 0.3s both;
 }
 
-@keyframes streakGlow {
-  0% {
-    box-shadow: 0 0 0 rgba(244, 162, 97, 0);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(244, 162, 97, 0.6);
-  }
-  100% {
-    box-shadow: 0 0 0 rgba(244, 162, 97, 0);
-  }
+.hero-title-main {
+  animation: fadeInUp 1s ease-out 0.4s both;
 }
 
-.session-controls button:hover {
-  transform: translateY(-2px);
+.tagline {
+  animation: fadeInUp 1s ease-out 0.5s both;
 }
 
-.session-controls button:active {
-  transform: scale(0.96);
+.hero-cta-group {
+  animation: fadeInUp 1s ease-out 0.6s both;
 }
 
-.session-controls.hidden {
-  opacity: 0;
-  transform: translateY(10px);
-  pointer-events: none;
-  transition: opacity var(--transition-smooth),
-              transform var(--transition-smooth);
-}
-
-@keyframes fadeInScale {
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0);
   }
+}
+
+/* ===== BUTTON HOVER ANIMATIONS ===== */
+
+.cta-btn {
+  transition: all var(--transition-smooth);
+}
+
+.cta-btn::before {
+  transition: opacity var(--transition-smooth);
+}
+
+.btn-icon {
+  transition: transform var(--transition-smooth);
+}
+
+/* ===== CARD HOVER ANIMATIONS ===== */
+
+.step {
+  transition: all var(--transition-smooth);
+}
+
+.feature-card {
+  transition: all var(--transition-smooth);
+}
+
+.feature-card::before {
+  transition: transform var(--transition-smooth);
+}
+
+.feature-icon {
+  transition: transform var(--transition-smooth);
+}
+
+.testimonial {
+  transition: all var(--transition-smooth);
+}
+
+/* ===== STAT ANIMATIONS ===== */
+
+.stat {
+  transition: transform var(--transition-smooth);
+}
+
+.stat:hover {
+  transform: translateY(-4px);
 }

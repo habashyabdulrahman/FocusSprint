@@ -1,119 +1,223 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FocusSprint</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FocusSprint – Build Momentum</title>
 
-  <link rel="shortcut icon" href="/assets/icons/icon.png" type="image/x-icon">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;600;800&family=DM+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
 
-  <!-- CSS Files -->
-  <link rel="stylesheet" href="css/reset.css" />
-  <link rel="stylesheet" href="css/variables.css" />
-  <link rel="stylesheet" href="css/layout.css" />
-  <link rel="stylesheet" href="css/components.css" />
-  <link rel="stylesheet" href="css/animations.css" />
+    <!-- CSS Files - Same structure as main app -->
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/animations.css" />
 </head>
 
 <body>
-  <main class="app">
-    <!-- App Shell Wrapper (for Deep Focus) -->
-    <div id="app-shell" class="app-shell">
-      <!-- Header -->
-      <header class="app-header">
-        <h1 class="app-title">FocusSprint</h1>
-        <p class="app-tagline">Start small. Just 2 minutes.</p>
-      </header>
 
-      <!-- Timer Section -->
-      <section class="timer-section">
-        <!-- Deep Focus Toggle -->
-        <div class="focus-mode-toggle">
-          <button id="focus-toggle-btn" class="focus-toggle-btn hidden">
-            ✨ Deep Focus
-          </button>
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="hero-bg-elements">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
         </div>
 
-        <!-- Unlock Progress -->
-        <div class="unlock-progress hidden" id="unlock-progress">
-          <div class="unlock-label">
-            Deep Focus Unlock
-            <span id="unlock-count">0 / 3</span>
-          </div>
-          <div class="progress-bar">
-            <div class="progress-fill" id="progress-fill"></div>
-          </div>
+        <div class="hero-content">
+            <div class="hero-badge">🧠 Built for Distracted Minds</div>
+            <h1>
+                <span class="hero-title-top">Struggling to Start?</span>
+                <span class="hero-title-main">Just Do 2 Minutes.</span>
+            </h1>
+            <p class="tagline">
+                Stop fighting your brain to get started.<br>
+                The distraction-free timer that builds focus for you.
+            </p>
+            <div class="hero-cta-group">
+                <a href="/app/" class="cta-btn primary" id="hero-cta">
+                    <span class="btn-text">Start a 2-Minute Sprint</span>
+                    <span class="btn-icon">→</span>
+                </a>
+                <p style="margin-top: 1rem; opacity: 0.7; font-size: 0.9rem;">No sign up. No pressure. Just start.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">2min</span>
+                        <span class="stat-label">commitment</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">friction</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">to unlock</span>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="timer-display" id="timer">08:00</div>
-        <p class="encouragement" id="encouragement">
-          You're doing great. Keep going.
-        </p>
-        <p id="xp-display" class="xp-display">XP: 0</p>
-      </section>
-
-      <!-- Controls -->
-      <section class="controls">
-        <div class="duration-controls">
-          <button class="time-btn" data-time="5">5 min</button>
-          <button class="time-btn" data-time="8">8 min</button>
-          <button class="time-btn" data-time="12">12 min</button>
-          <button class="time-btn soft-start" data-time="2">
-            I can’t start (2 min)
-          </button>
-          <!-- <button class="time-btn test-btn" data-time="0.166">
-            ⚡ Test (10s)
-          </button> -->
+    <!-- ===== THE PROBLEM ===== -->
+    <section class="problem-section">
+        <div class="problem-content">
+            <h2 class="section-label">The Problem</h2>
+            <div class="problem-text">
+                <p class="big-quote">"I'll start when I feel ready."</p>
+                <p class="explanation">
+                    Waiting for motivation creates paralysis. <br>
+                    <strong>Action creates motivation.</strong> You just need a friction-free way to start.
+                </p>
+            </div>
         </div>
-      </section>
+    </section>
 
-      <!-- Session Controls -->
-      <section class="session-controls focus-controls hidden" id="session-controls">
-        <button id="pause-btn">Pause</button>
-        <button id="reset-btn">Reset</button>
-      </section>
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="how-it-works">
+        <h2 class="section-title">How It Works</h2>
 
-      <!-- Exit Deep Focus Button -->
-      <button id="exit-focus-btn" class="exit-focus-btn hidden">
-        Exit Focus Mode
-      </button>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">01</div>
+                <div class="step-content">
+                    <h3>Commit to 2 Minutes</h3>
+                    <p>A tiny commitment your brain can't reject. Bypass the fear of starting.</p>
+                </div>
+            </div>
 
-      <!-- Streak -->
-      <footer class="streak">
-        <div class="streak-card">
-          🔥 Streak: <span id="streak-count">3</span> days
+            <div class="step-connector">
+                <svg width="40" height="24" viewBox="0 0 40 24" fill="none">
+                    <path d="M0 12H35M35 12L28 5M35 12L28 19" stroke="currentColor" stroke-width="2" />
+                </svg>
+            </div>
+
+            <div class="step">
+                <div class="step-number">02</div>
+                <div class="step-content">
+                    <h3>Create the Loop</h3>
+                    <p>Complete the sprint. Get the dopamine hit. The momentum carries you forward.</p>
+                </div>
+            </div>
+
+            <div class="step-connector">
+                <svg width="40" height="24" viewBox="0 0 40 24" fill="none">
+                    <path d="M0 12H35M35 12L28 5M35 12L28 19" stroke="currentColor" stroke-width="2" />
+                </svg>
+            </div>
+
+            <div class="step">
+                <div class="step-number">03</div>
+                <div class="step-content">
+                    <h3>Unlock Deep Focus</h3>
+                    <p>Complete 3 sprints to unlock the immersive, distraction-free mode.</p>
+                </div>
+            </div>
         </div>
-      </footer>
-    </div>
+    </section>
 
-    <!-- Session Complete Modal -->
-    <div class="modal hidden" id="session-modal">
-      <div class="modal-content">
-        <h2>🔥 Session Complete!</h2>
-        <p id="modal-message">You did it. Keep building momentum.</p>
-        <button id="close-modal">Nice 🎯</button>
-      </div>
-    </div>
+    <!-- ===== FEATURES ===== -->
+    <section class="features">
+        <h2 class="section-title">Designed for Your Brain</h2>
 
-    <audio id="success-sound" src="assets/sounds/success.mp3"></audio>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <div class="feature-content">
+                    <h3>Micro-Sprints</h3>
+                    <p>2-12 minute sessions. Short enough to trick your brain into starting. Long enough to find flow.
+                    </p>
+                </div>
+            </div>
 
-  </main>
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <div class="feature-content">
+                    <h3>Visual Progress</h3>
+                    <p>See your momentum build. Every session earns XP, turning work into a game you actually want to
+                        play.</p>
+                </div>
+            </div>
 
-  <!-- Privacy-friendly analytics by Plausible -->
-  <script async src="https://plausible.io/js/pa-78smhG3RaSpUl54_AENJM.js"></script>
-  <script>
+            <div class="feature-card">
+                <div class="feature-icon">🔥</div>
+                <div class="feature-content">
+                    <h3>Gentle Streaks</h3>
+                    <p>Daily consistency builds momentum. No shame if you miss a day—just pick it up again.</p>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-content">
+                    <h3>Zero Resistance</h3>
+                    <p>No sign-up. No configuration. Open the app and you’re one click away from starting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== UNLOCK DEEP FOCUS ===== -->
+    <section class="unlock-section" style="padding: 6rem 1.5rem; text-align: center;">
+        <div style="max-width: 600px; margin: 0 auto;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🔓</div>
+            <h2 class="section-title">Momentum Earns Clarity</h2>
+            <p style="font-size: 1.25rem; opacity: 0.9; line-height: 1.6; max-width: 500px; margin: 0 auto;">
+                Complete <strong>3 sessions</strong> to unlock Deep Focus Mode—a calmer, distraction-free space for your
+                best work.
+            </p>
+            <p style="margin-top: 1rem; opacity: 0.7; font-size: 1rem;">
+                It's not a gimmick. It's a quiet reward for showing up.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== SOCIAL PROOF ===== -->
+    <section class="social-proof">
+        <div class="testimonials">
+            <div class="testimonial">
+                <p class="quote">"Finally finished that report I put off for 2 weeks. Took 3 sprints."</p>
+                <span class="author">– Mark D.</span>
+            </div>
+            <div class="testimonial">
+                <p class="quote">"The 2-minute rule actually works here. No dread, just doing."</p>
+                <span class="author">– Sarah J.</span>
+            </div>
+            <div class="testimonial">
+                <p class="quote">"I love the Deep Focus mode. It’s like a quiet room for my brain."</p>
+                <span class="author">– Alex R.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FINAL CTA ===== -->
+    <section class="final-cta">
+        <div class="cta-content">
+            <h2>Start small.<br>Let momentum do the rest.</h2>
+            <p class="cta-subtext">You don't need willpower. You just need to start.</p>
+            <a href="/app/" class="cta-btn large primary">
+                <span class="btn-text">Try Your First Session</span>
+                <span class="btn-icon">→</span>
+            </a>
+            <p style="margin-top: 1.5rem; opacity: 0.6; font-size: 0.95rem;">No tracking. No pressure. Your pace.</p>
+        </div>
+        <div class="cta-footer">
+            <p>Free forever. No sign-up. Works offline.</p>
+        </div>
+    </section>
+
+    <!-- Cloudflare Web Analytics -->
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-78smhG3RaSpUl54_AENJM.js"></script>
+<script>
     window.plausible = window.plausible || function () { (plausible.q = plausible.q || []).push(arguments) }, plausible.init = plausible.init || function (i) { plausible.o = i || {} };
     plausible.init()
-  </script>
-
-
-  <!-- JS Files -->
-  <script src="js/storage.js"></script>
-  <script src="js/streak.js"></script>
-  <script src="js/ui.js"></script>
-  <script src="js/timer.js"></script>
-  <script src="js/app.js"></script>
+</script>
 </body>
 
 </html>

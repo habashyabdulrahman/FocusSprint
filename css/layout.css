@@ -1,7 +1,12 @@
-/* ===== Global Layout ===== */
+/* ===== Landing Page Layout ===== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  margin: 0;
   font-family: var(--font-main);
   background: linear-gradient(
     135deg,
@@ -9,212 +14,272 @@ body {
     var(--color-bg-gradient-end)
   );
   color: var(--color-text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* ===== HERO SECTION ===== */
+
+.hero {
   min-height: 100vh;
-}
-
-
-/* ===== Main App Container ===== */
-
-.app {
-  width: 100%;
-  max-width: 900px;
-  padding: var(--space-xl);
-  text-align: center;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-/* Transitioning state */
-.app.deep-focus-transitioning {
-  pointer-events: none;
-}
-
-
-/* ===== Header ===== */
-
-.app-header {
-  margin-bottom: var(--space-lg);
-}
-
-.app-title {
-  font-size: var(--font-size-title);
-  font-weight: 700;
-  margin-bottom: var(--space-sm);
-  margin-top: auto;
-}
-
-.app-tagline {
-  font-size: var(--font-size-tagline);
-  color: var(--color-text-muted);
-}
-
-
-/* ===== Timer Section ===== */
-
-.timer-section {
-  margin-bottom: var(--space-lg);
-}
-
-.timer-display {
-  font-size: var(--font-size-timer);
-  font-weight: 700;
-  margin-bottom: var(--space-sm);
-}
-
-.encouragement {
-  font-size: var(--font-size-tagline);
-  color: var(--color-text-muted);
-}
-
-
-/* ===== Controls Layout ===== */
-
-.controls {
-  margin-bottom: var(--space-lg);
-}
-
-.duration-controls {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg-elements {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.4;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+}
+
+.hero h1 {
+  margin-bottom: var(--space-md);
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+/* ===== HERO STATS ===== */
+
+.hero-stats {
+  display: flex;
+  gap: var(--space-xl);
+  margin-top: var(--space-md);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-md);
+  background: white;
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-soft);
+  min-width: 100px;
+}
+
+/* ===== PROBLEM SECTION ===== */
+
+.problem-section {
+  padding: var(--space-xl) var(--space-lg);
+  background: white;
+  position: relative;
+}
+
+.problem-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 600px;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-primary),
+    transparent
+  );
+}
+
+.problem-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ===== HOW IT WORKS ===== */
+
+.how-it-works {
+  padding: var(--space-2xl) var(--space-lg);
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-gradient-start),
+    var(--color-bg-gradient-end)
+  );
+}
+
+.steps-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: stretch;
   justify-content: center;
   gap: var(--space-md);
   flex-wrap: wrap;
 }
 
-
-/* ===== Streak Footer ===== */
-
-.streak {
-  margin-top: var(--space-md);
+.step {
+  flex: 1;
+  min-width: 260px;
+  max-width: 340px;
+  padding: var(--space-lg);
+  background: white;
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-soft);
+  border: 2px solid transparent;
 }
 
-
-/* ===== Deep Focus Mode ===== */
-
-/* The main container when active */
-.app.deep-focus-mode {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  min-height: 100dvh;
-  height: 100%;
-  max-width: none; /* Override default max-width */
-  z-index: 999;
-  padding: 0;
-  margin: 0;
-  
-  /* Brand-consistent immersive gradient */
-  background: radial-gradient(
-    circle at center,
-    var(--color-primary-dark) 0%,
-    #355f49 100%
-  );
-  
-  /* Centering */
+.step-connector {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+/* ===== FEATURES ===== */
+
+.features {
+  padding: var(--space-2xl) var(--space-lg);
+  background: white;
+}
+
+.features-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-lg);
+}
+
+.feature-card {
+  padding: var(--space-lg);
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-gradient-start),
+    var(--color-bg-gradient-end)
+  );
+  border-radius: var(--radius-large);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===== SOCIAL PROOF ===== */
+
+.social-proof {
+  padding: var(--space-2xl) var(--space-lg);
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-gradient-start),
+    var(--color-bg-gradient-end)
+  );
+}
+
+.testimonials {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+.testimonial {
+  padding: var(--space-lg);
+  background: white;
+  border-left: 5px solid var(--color-primary);
+  border-radius: var(--radius-medium);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ===== FINAL CTA ===== */
+
+.final-cta {
+  padding: var(--space-3xl) var(--space-lg);
+  background: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.final-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 600px;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-primary),
+    var(--color-accent),
+    transparent
+  );
+}
+
+.cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-footer {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 2px solid var(--color-bg-gradient-end);
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+  .step-connector {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: var(--space-lg) var(--space-md);
+  }
   
-  transition: all 0.5s ease;
+  .hero-stats {
+    gap: var(--space-md);
+  }
+  
+  .stat {
+    min-width: 80px;
+    padding: var(--space-sm);
+  }
+  
+  .steps-container {
+    flex-direction: column;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .testimonials {
+    grid-template-columns: 1fr;
+  }
+  
+  .how-it-works,
+  .features,
+  .social-proof,
+  .final-cta {
+    padding: var(--space-xl) var(--space-md);
+  }
 }
-
-/* Hide Elements in Deep Focus */
-.app.deep-focus-mode .app-header,
-.app.deep-focus-mode .streak,
-.app.deep-focus-mode .encouragement,
-.app.deep-focus-mode .xp-display,
-.app.deep-focus-mode .focus-toggle-btn,
-.app.deep-focus-mode .focus-mode-toggle {
-  display: none !important;
-}
-
-/* Hide duration buttons only when running */
-.app.deep-focus-mode.duration-selected .duration-controls {
-  display: none !important;
-}
-
-/* Duration Button Contrast Fix for Deep Focus */
-.app.deep-focus-mode .duration-controls button {
-  background-color: var(--color-primary);
-  color: var(--color-text-light);
-  box-shadow: none;
-}
-
-.app.deep-focus-mode .duration-controls button:hover {
-  background-color: var(--color-primary-dark);
-}
-
-/* Ensure specific override for soft-start class (maintains border size but fixes contrast) */
-.app.deep-focus-mode .duration-controls .soft-start {
-  background-color: var(--color-primary);
-  color: var(--color-text-light);
-  border-color: var(--color-primary);
-}
-
-/* Session controls and Exit button fade in on hover */
-.app.deep-focus-mode .focus-controls,
-.app.deep-focus-mode .exit-focus-btn {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-.app.deep-focus-mode .focus-controls.controls-visible,
-.app.deep-focus-mode .exit-focus-btn.controls-visible {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Spaced Timer */
-.app.deep-focus-mode .timer-section {
-  z-index: 1001;
-  margin-bottom: var(--space-lg); /* 40px spacing */
-}
-
-.app.deep-focus-mode #timer {
-  opacity: 0;
-  transform: scale(0.96);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-  color: var(--color-text-light);
-  text-shadow: none;
-}
-
-.app.deep-focus-mode.deep-focus-animate #timer {
-  opacity: 1;
-  transform: scale(1.1);
-}
-
-/* Exit Animation */
-.app.deep-focus-exiting #timer {
-  opacity: 0 !important;
-  transform: scale(0.97) !important;
-  transition: opacity 0.2s ease, transform 0.2s ease !important;
-}
-
-/* Fade out elements during transition */
-.app.deep-focus-transitioning .app-header,
-.app.deep-focus-transitioning .streak,
-.app.deep-focus-transitioning .duration-controls,
-.app.deep-focus-transitioning .xp-display,
-.app.deep-focus-transitioning .unlock-progress {
-  opacity: 0;
-  transition: opacity 0.15s ease;
-}
-
-/* Position Controls */
-.app.deep-focus-mode .session-controls {
-  z-index: 1001;
-  margin-top: var(--space-md); /* 20px spacing */
-  transform: none; /* Removed scale */
-}
-
-/* Ensure Modal sits on top */
-.modal {
-  z-index: 2000;
-}
-
-

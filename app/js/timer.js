@@ -46,6 +46,8 @@ function startTimer(minutes) {
 
   // Start countdown
   countdownInterval = setInterval(runTimer, 1000);
+
+  plausible('session_started');
 }
 
 function runTimer() {
@@ -122,6 +124,8 @@ function completeSession() {
 
   // Show completion modal
   ui.showSessionComplete();
+
+  plausible('session_completed');
 }
 
 // ===== Expose Public API =====
